@@ -2,67 +2,277 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
+/** IMPORTS **/
+@import url(http://fonts.googleapis.com/css?family=Satisfy|Kite+One);
+/** VAS **/
+/** VARS **/
+/** COLORS **/
+/** COLORS **/
+/** HEADER VARS **/
+/** HEADER VARS **/
+/** PLACEHOLDERS **/
+/** MIXIN **/
+/** STYLES **/
+/** GENERAL **/
+/* line 3, ../sass/styles/_general.scss */
+body {
+  font-family: 'Kite One', sans-serif;
+}
+
+/* line 7, ../sass/styles/_general.scss */
+ul {
   padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* line 12, ../sass/styles/_general.scss */
+header, footer {
+  color: #FFFFFF;
 }
 
-/* line 28, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
+/* line 16, ../sass/styles/_general.scss */
+#main {
+  color: #151515;
 }
 
-/* line 30, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
+/** BACKGROUNDS **/
+/* line 21, ../sass/styles/_general.scss */
+.bg-color-1 {
+  background-color: #D8D8D8;
 }
 
-/* line 32, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-a img {
+/* line 25, ../sass/styles/_general.scss */
+.bg-secondary-color-light {
+  background-color: #FFC846;
+}
+
+/* line 29, ../sass/styles/_general.scss */
+.separator-line {
+  background-color: #FF8000;
+  height: 2px;
+}
+
+/* line 34, ../sass/styles/_general.scss */
+header .separator-line {
+  margin-top: 5px;
+}
+
+/* line 38, ../sass/styles/_general.scss */
+footer .separator-line {
+  margin-bottom: 5px;
+}
+
+/** BACKGROUNDS **/
+/** HEADER **/
+/* line 3, ../sass/styles/_header.scss */
+header {
+  background-color: #151515;
+  padding: 0;
+}
+
+/* line 8, ../sass/styles/_header.scss */
+header #photo-background {
+  position: relative;
+  background-color: #151515;
+  background-image: url("http://my_xampp/borjazanon/images/main.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 550px;
+}
+/* line 18, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title {
+  position: relative;
+  z-index: 2;
+}
+/* line 22, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .title-banner {
+  margin-top: 20px;
+  font-family: 'Satisfy', cursive;
+}
+/* line 26, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .title-banner div.main-title {
+  font-size: 50px;
+  text-align: center;
+}
+/* line 30, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .title-banner div.main-title div.subtitle {
+  font-size: 25px;
+}
+/* line 36, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner {
+  margin-top: 20px;
+  font-size: 20px;
+}
+/* line 40, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+}
+/* line 46, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list li {
+  position: relative;
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10px 10px 0;
+}
+/* line 54, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language {
+  position: absolute;
+  bottom: 0;
+  width: calc((100%) / 2);
+  height: 2px;
+  background-color: #FF8000;
+}
+/* line 67, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language.active_1 {
+  left: calc( ((100%) / 2) * 0 );
+}
+/* line 67, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language.active_2 {
+  left: calc( ((100%) / 2) * 1 );
+}
+/* line 67, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language.active_3 {
+  left: calc( ((100%) / 2) * 2 );
+}
+/* line 67, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language.active_4 {
+  left: calc( ((100%) / 2) * 3 );
+}
+/* line 67, ../sass/styles/_header.scss */
+header #photo-background #main-nav-title .languages-banner .language-list .bottom-highlighting-language.active_5 {
+  left: calc( ((100%) / 2) * 4 );
+}
+/* line 75, ../sass/styles/_header.scss */
+header #photo-background .opacity-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* line 87, ../sass/styles/_header.scss */
+header .row {
+  padding: 10px 0;
+}
+
+/* line 91, ../sass/styles/_header.scss */
+header .main-title {
+  font-size: 20px;
+}
+
+/* line 95, ../sass/styles/_header.scss */
+header .navbar {
+  margin: 0;
+  min-height: auto;
+}
+
+/* line 100, ../sass/styles/_header.scss */
+header .navbar-default {
   border: none;
+  background-color: #151515;
+}
+/* line 104, ../sass/styles/_header.scss */
+header .navbar-default .navbar-header {
+  text-align: center;
+}
+/* line 107, ../sass/styles/_header.scss */
+header .navbar-default .navbar-header .navbar-toggle {
+  float: none;
 }
 
-/* line 116, ../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
+/* line 113, ../sass/styles/_header.scss */
+header .nav-list {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+/* line 123, ../sass/styles/_header.scss */
+header .nav-list li {
+  -webkit-flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -webkit-flex-basis: 50px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50px;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+/* line 135, ../sass/styles/_header.scss */
+header .nav-list li a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+/* line 140, ../sass/styles/_header.scss */
+header .nav-list li a:hover {
+  color: #FF8000;
+  cursor: pointer;
+}
+/* line 146, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav {
+  position: absolute;
+  bottom: 0;
+  width: calc((100% - 30px) / 5);
+  height: 2px;
+  background-color: #FF8000;
+  -moz-transition: left 700ms ease-in-out;
+  -o-transition: left 700ms ease-in-out;
+  -webkit-transition: left 700ms ease-in-out;
+  transition: left 700ms ease-in-out;
+}
+/* line 160, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav.active_1 {
+  left: calc(15px + (((100% - 30px) / 5) * 0) );
+}
+/* line 160, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav.active_2 {
+  left: calc(15px + (((100% - 30px) / 5) * 1) );
+}
+/* line 160, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav.active_3 {
+  left: calc(15px + (((100% - 30px) / 5) * 2) );
+}
+/* line 160, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav.active_4 {
+  left: calc(15px + (((100% - 30px) / 5) * 3) );
+}
+/* line 160, ../sass/styles/_header.scss */
+header .nav-list .bottom-highlighting-nav.active_5 {
+  left: calc(15px + (((100% - 30px) / 5) * 4) );
+}
+
+/** MAIN **/
+/* line 3, ../sass/styles/_main.scss */
+section#main .section {
+  padding: 20px 0;
+}
+
+/** FOOTER **/
+/* line 2, ../sass/styles/_footer.scss */
+footer {
+  background-color: #151515;
+  padding: 4px 0;
+  height: 200px;
+}
+/* line 7, ../sass/styles/_footer.scss */
+footer #body-footer {
+  margin-top: 20px;
 }
