@@ -1,18 +1,15 @@
 angular.module("webBorja")
-.directive("resizablePhoto", [function(){
+.directive("resizablePhoto", ['screenSizeAndPosition', function(screenSizeAndPosition){
 	return {
+		scope: {},
 		restrict: 'A',
 		link: function(scope, element, attrs, controller, transcludeFn){
-			function setResizePhoto(){
-				var browserHeight = window.innerHeight || 800;
-            	$("#photo-background").css('height', (browserHeight-50) + "px");
-			}
-
 			//Resize the photo the first time
-			setResizePhoto();
+			screenSizeAndPosition.setResizePhoto(element);
+
 			//Resize the photo every time the window size change
             $(window).resize(function() {
-  				setResizePhoto()
+  				screenSizeAndPosition.setResizePhoto(element);
 			});
 
             $("#opacity-main-photo").addClass("show-it");
