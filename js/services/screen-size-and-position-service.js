@@ -1,6 +1,6 @@
 angular.module("webBorja")
 .factory("screenSizeAndPosition", ['$rootScope', function($rootScope){
-	var menuHeight = 50;
+	var menuHeight = 55;
 	var defaultHeight = 800;
 	var browserHeight = 0;
 
@@ -14,6 +14,17 @@ angular.module("webBorja")
 			return scrollPos >= $("#nav-container").offset().top;
 		},
 		checkTheSection: function(sections, scrollPos, currentPosition){
+			$(sections).each(function (index, currentObject) {
+		    	var realIndex = index+1;
+				var refElement = $("#" + currentObject);
+
+				if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() - 150 > scrollPos && currentPosition != realIndex) {
+					//Active
+					$rootScope.$broadcast("changeMenuSelected", realIndex);
+				}
+			});
+		},
+		checkTheSectionNoHome: function(sections, scrollPos, currentPosition){
 			if(scrollPos < (browserHeight - menuHeight)){
 				//Over the menu
 				if(currentPosition){

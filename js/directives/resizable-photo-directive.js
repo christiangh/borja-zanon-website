@@ -12,7 +12,7 @@ angular.module("webBorja")
   				screenSizeAndPosition.setResizePhoto(element);
 			});
 
-            $("#opacity-main-photo").addClass("show-it");
+            $("#photo-background").addClass("show-it");
 		}
 	}
 }]);

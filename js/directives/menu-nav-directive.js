@@ -6,6 +6,8 @@ angular.module("webBorja")
 	return{
 		restrict: "A",
 		link: function(scope, element, attrs, controller, transcludeFn){
+			$(element).attr("id", "menu-nav");
+
 			scope.clickOptionOnNav = menuManager.clickOptionOnNav.bind({}, screenSizeAndPosition.menuHeight);
 			scope.isPositionSelected = menuManager.isPositionSelected;
 
@@ -37,6 +39,16 @@ angular.module("webBorja")
 	        $scope.$on('changeMenuSelected', function(event, newMenuSelected){
 	        	menuManager.setMenuSelected(newMenuSelected);
 	        });
+
+	        $scope.toggleMobileMenu = function(){
+	        	$(".navbar-toggle").toggleClass("pushed");
+
+	        	if(!$("#menu-nav").hasClass("fixed-nav") && !$("ul.nav-list").hasClass("mobile-menu-displayed")){
+	        		menuManager.goTo("#nav-container");
+	        	}
+
+	        	$("ul.nav-list").toggleClass("mobile-menu-displayed");
+	        }
 		}
 	}
 }]);

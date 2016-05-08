@@ -28,9 +28,9 @@
     </head>
     
     <body ng-app="webBorja">
-        <header>
+        <header id="home">
             <div id="photo-background" resizable-photo>
-                <div id="main-nav-title" class="container hidden-xs hidden-sm">
+                <div id="main-nav-title" class="container">
                     <div class="title-banner pull-left">
                         <div class="main-title">
                             <span>Borja Zanón</span>
@@ -38,7 +38,6 @@
                         </div>
                     </div>
                 </div>
-                <div id="opacity-main-photo"></div>
             </div>
 
             <div id="nav-container">
@@ -46,22 +45,22 @@
                     <div class="container">
                         <div class="row">
                             <nav class="navbar navbar-default">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+                                <div class="navbar-header col-xs-3 col-sm-2 visible-xs visible-sm">
+                                    <button type="button" class="navbar-toggle collapsed no-margin pull-left" ng-click="toggleMobileMenu()">
                                         <span class="sr-only">Menu</span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
                                 </div>
-                                <div class="collapse navbar-collapse" id="main-navbar">
-                                    <ul class="nav-list">
-                                        <li ng-click="clickOptionOnNav(1)">Noticias</li>
-                                        <li ng-click="clickOptionOnNav(2)">Biografía</li>
-                                        <li ng-click="clickOptionOnNav(3)">Servicios</li>
+                                <div id="main-navbar" class="col-xs-9 col-sm-12">
+                                    <ul class="nav-list" ng-class="{'active_1': isPositionSelected(1), 'active_2': isPositionSelected(2), 'active_3': isPositionSelected(3),'active_4': isPositionSelected(4), 'active_5': isPositionSelected(5)}">
+                                        <li ng-click="clickOptionOnNav(1)">Home</li>
+                                        <li ng-click="clickOptionOnNav(2)">Noticias</li>
+                                        <li ng-click="clickOptionOnNav(3)">Biografía</li>
                                         <li ng-click="clickOptionOnNav(4)">Galería</li>
                                         <li ng-click="clickOptionOnNav(5)">Contacto</li>
-                                        <div class="bottom-highlighting-nav" ng-class="{'active_1': isPositionSelected(1), 'active_2': isPositionSelected(2), 'active_3': isPositionSelected(3),'active_4': isPositionSelected(4), 'active_5': isPositionSelected(5)}"></div>
+                                        <div class="bottom-highlighting-nav hidden-xs"></div>
                                     </ul>
                                 </div>
                             </nav>
@@ -75,22 +74,18 @@
             <div id="news-section">
                 <div class="section-title">
                     <div class="container">
-                        <div class="row">
-                            <span>Noticias</span>
-                        </div>
+                        <h2>Noticias</h2>
                     </div>
                 </div>
                 <div class="section">
-                    <div class="container" ng-include="'templates/home.html'"></div>
+                    <div class="container" ng-include="'templates/news.html'"></div>
                 </div>
             </div>
 
             <div id="bigraphy-section">
                 <div class="section-title">
                     <div class="container">
-                        <div class="row">
-                            <span>Biografía</span>
-                        </div>
+                        <h2>Biografía</h2>
                     </div>
                 </div>
                 <div class="section">
@@ -98,25 +93,10 @@
                 </div>
             </div>
 
-            <div id="services-section">
-                <div id="services-section-title" class="section-title">
-                    <div class="container">
-                        <div class="row">
-                            <span>Servicios</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="container" ng-include="'templates/services.html'"></div>
-                </div>
-            </div>
-
             <div id="gallery-section">
                 <div id="gallery-section-title" class="section-title">
                     <div class="container">
-                        <div class="row">
-                            <span>Galería</span>
-                        </div>
+                        <h2>Galería</h2>
                     </div>
                 </div>
                 <div class="section">
@@ -127,9 +107,7 @@
             <div id="contact-section">
                 <div id="contact-section-title" class="section-title">
                     <div class="container">
-                        <div class="row">
-                            <span>Contacto</span>
-                        </div>
+                        <h2>Contacto</h2>
                     </div>
                 </div>
                 <div class="section">

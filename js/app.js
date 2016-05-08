@@ -2,6 +2,6 @@
     
     var app = angular.module('webBorja', []);
 
-    app.constant('SECTIONS', ["news-section", "bigraphy-section", "services-section", "gallery-section", "contact-section"]);
+    app.constant('SECTIONS', ["home", "news-section", "bigraphy-section", "gallery-section", "contact-section"]);
 
 })();
