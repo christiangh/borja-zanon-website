@@ -71,7 +71,7 @@ header .row {
 header #photo-background {
   position: relative;
   background-color: #151515;
-  background-image: url("http://my_xampp/borjazanon/images/main.jpg");
+  background-image: url("/images/main.jpg");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: 50% 50%;
@@ -420,16 +420,23 @@ header #nav-container .navbar .nav-list.active_5 .bottom-highlighting-nav {
 section#main .section-title {
   height: auto;
   padding: 40px 0;
-  background-color: #000000;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #000000 url("/images/titles.jpg") no-repeat scroll left top/100% auto;
+  background-attachment: fixed;
+}
+@media (max-width: 750px) {
+  section#main .section-title {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #000000 url("/images/titles.jpg") no-repeat scroll 53% 20%/auto 200%;
+    background-attachment: fixed;
+  }
 }
 section#main .section-title h2 {
   font-size: 40px;
-  color: #FDE3A7;
+  color: #FEEBC0;
 }
 section#main .section {
   padding-top: 20px;
   padding-bottom: 40px;
-  background-color: #FDE3A7;
+  background: #FEEBC0;
 }
 
 /** FOOTER **/
