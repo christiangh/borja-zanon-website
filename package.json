@@ -1,0 +1,28 @@
+{
+  "name": "borjazanon",
+  "version": "1.0.0",
+  "description": "Borja Zanon Website",
+  "scripts": {
+    "start": "npm run uglifyapp && npm run lite",
+    "lite": "lite-server",
+    "scss": "node-sass --output-style compressed -o assets/css assets/scss",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "uglify": "uglifyjs app/**/*.js -m -o assets/js/app.js && uglifyjs app/**/*.js -m -c -o assets/js/app.min.js",
+    "uglifyapp": "uglifyjs app/app.js app/shared/nav/menu-manager-service.js app/shared/header/screen-size-and-position-service.js app/components/biography/biography-controller.js app/components/contact/contact-controller.js app/components/gallery/gallery-controller.js app/components/news/news-controller.js -m -o assets/js/app.js",
+    "uglifyapp2": "uglifyjs app/app.js app/shared/nav/menu-manager-service.js app/shared/nav/menu-nav-directive.js app/shared/header/resizable-photo-directive.js app/shared/header/screen-size-and-position-service.js app/components/biography/biography-controller.js app/components/contact/contact-controller.js app/components/gallery/gallery-controller.js app/components/news/news-controller.js -m -o assets/js/app.js"
+  },
+  "author": "Christian Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "jquery": "2.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "lite-server": "^2.2.0",
+    "node-sass": "^3.8.0",
+    "postcss-cli": "^2.5.2",
+    "uglify-js": "^2.7.0"
+  }
+}

@@ -1,0 +1,264 @@
+
+/** BTN MUSIC **/
+
+a, a:active, a:focus, 
+button, button:focus, button:active, 
+.btn, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+    outline: none;
+    outline: 0;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+}
+
+.btn-music{
+	position: relative;
+	width: 100px;
+	overflow: hidden;
+
+	-webkit-transition: width 1s, height 1s, background 1s, border 0.5s;
+	transition: width 1s, height 1s, background 1s, border 0.5s;
+}
+
+.btn-music.music-animation-on{
+	width: 200px;
+	height: 46px;
+	border-radius: 0;
+	border-color: transparent;
+	padding: 0; 
+
+	background: white;
+  	background: -webkit-linear-radial-gradient(white, white 10%, grey 10%, grey 15%, white 15%, white 25%);
+  	background: -o-repeating-linear-gradient(white, white 10%, grey 10%, grey 15%, white 15%, white 25%);
+  	background: -moz-repeating-linear-gradient(white, white 10%, grey 10%, grey 15%, white 15%, white 25%);
+  	background: repeating-linear-gradient(white, white 10%, grey 10%, grey 15%, white 15%, white 25%);
+}
+
+.btn-music.music-animation-on > .stave{
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 400%;
+	height: 100%;
+	opacity: 1;
+
+	-moz-animation: stave-movement 5s linear 2s infinite;
+  	-webkit-animation: stave-movement 5s linear 2s infinite;
+  	animation: stave-movement 5s linear 2s infinite;
+}
+
+.btn-music.music-animation-on > .stave > span{
+	position: absolute;
+	opacity: 0;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(1){
+	top: 26px;
+	left: 6%;
+
+	-moz-animation: show-up 0.5s linear 1s forwards;
+  	-webkit-animation: show-up 0.5s linear 1s forwards;
+  	animation: show-up 0.5s linear 1s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(2){
+	top: 20px;
+	left: 18%;
+
+	-moz-animation: show-up 0.5s linear 1.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 1.5s forwards;
+  	animation: show-up 0.5s linear 1.5s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(3){
+	top: 24px;
+	left: 31%;
+
+	-moz-animation: show-up 0.5s linear 2s forwards;
+  	-webkit-animation: show-up 0.5s linear 2s forwards;
+  	animation: show-up 0.5s linear 2s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(4){
+	top: 15px;
+	left: 43%;
+
+	-moz-animation: show-up 0.5s linear 2.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 2.5s forwards;
+  	animation: show-up 0.5s linear 2.5s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(5){
+	top: 25px;
+	left: 56%;
+
+	-moz-animation: show-up 0.5s linear 2.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 2.5s forwards;
+  	animation: show-up 0.5s linear 2.5s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(6){
+	top: 18px;
+	left: 68%;
+
+	-moz-animation: show-up 0.5s linear 2.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 2.5s forwards;
+  	animation: show-up 0.5s linear 2.5s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(7){
+	top: 26px;
+	left: 81%;
+
+	-moz-animation: show-up 0.5s linear 2.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 2.5s forwards;
+  	animation: show-up 0.5s linear 2.5s forwards;
+}
+
+.btn-music.music-animation-on > .stave span:nth-of-type(8){
+	top: 20px;
+	left: 93%;
+
+	-moz-animation: show-up 0.5s linear 2.5s forwards;
+  	-webkit-animation: show-up 0.5s linear 2.5s forwards;
+  	animation: show-up 0.5s linear 2.5s forwards;
+}
+
+/* Quaver */
+.btn-music.music-animation-on .stave span.quaver{
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: black;
+}
+
+.btn-music.music-animation-on .stave span.quaver:before{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 3px;
+	width: 3px;
+	height: 24px;
+	background-color: black;
+}
+
+.btn-music.music-animation-on .stave span.quaver:after{
+	content: '';
+	position: absolute;
+	right: -3px;
+	top: -12px;
+	width: 3px;
+	height: 16px;
+	background-color: black;
+
+	transform: rotate(-30deg);
+}
+/* Quaver */
+
+/* Crotchet */
+.btn-music.music-animation-on .stave span.crotchet{
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: black;
+}
+
+.btn-music.music-animation-on .stave span.crotchet:before{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 3px;
+	width: 3px;
+	height: 24px;
+	background-color: black;
+}
+/* Crotchet */
+
+/* Minim */
+.btn-music.music-animation-on .stave span.minim{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 3px solid black;
+	background-color: white;
+}
+
+.btn-music.music-animation-on .stave span.minim:before{
+	content: '';
+	position: absolute;
+	right: -3px;
+	bottom: 3px;
+	width: 3px;
+	height: 24px;
+	background-color: black;
+}
+/* Minim */
+
+/* Semibreve */
+.btn-music.music-animation-on .stave span.semibreve{
+	width: 18px;
+	height: 18px;
+	border-radius: 35%;
+	border: 4px solid black;
+	background-color: white;
+
+	transform: rotate(-30deg);
+}
+/* Semibreve */
+
+.btn-music.activity-success .stave,
+.btn-music.activity-error .stave,
+.btn-music.activity-success .stave span,
+.btn-music.activity-error .stave span{
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.btn-music.activity-success .result-message,
+.btn-music.activity-error .result-message{
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+/** SUCCESS **/
+.btn-music.activity-success{
+	background: green!important;
+	color: white!important;
+	border-radius: 10%;
+	transition: background 0.5s;
+}
+/** SUCCESS **/
+
+/** ERROR **/
+.btn-music.activity-error{
+	background: red!important;
+	color: white!important;
+	border-radius: 10%;
+	transition: background 0.5s;
+}
+/** ERROR **/
+
+/** Animations */
+@-webkit-keyframes show-up {
+    0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes show-up {
+    0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+
+@-webkit-keyframes stave-movement {
+    0% { left: 0; }
+	100% { left: -300%; }
+}
+
+@keyframes stave-movement {
+    0% { left: 0; }
+	100% { left: -300%; }
+}
+/** BTN MUSIC **/

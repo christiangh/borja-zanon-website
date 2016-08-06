@@ -1,0 +1,244 @@
+/** HEADER **/
+/** HEADER **/
+
+header{
+	background-color: $mainColor;
+	padding: 0;
+
+	.row{
+		padding: 10px 0;
+	}
+
+	#photo-background{
+		position: relative;
+		background-color: $mainColor;
+		background-image: url("/assets/images/main.jpg");
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: 50% 50%;
+		width: 100%;
+		height: 550px;
+
+		@media (max-width: 1050px) {
+			background-size: auto 100%;
+			background-position: 83% 50%;
+			background-color: #000000;
+		}
+
+		&::after{
+			content: '\A';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000000;
+			opacity: 1;
+			z-index: 1;
+		}
+
+		&.show-it::after{
+			opacity: 0.3;
+			transition: opacity 4s ease-in-out;
+		}
+
+		#main-nav-title{
+			position: relative;
+			z-index: 2;
+
+			.title-banner{
+				margin-top: 20px;
+				font-family: 'Satisfy', cursive;
+
+				div.main-title{
+					text-align: center;
+					font-size: 50px;
+
+
+					@media only screen and (min-width:500px) and (max-width: 780px){
+						font-size: 35px;
+					}
+
+					@media (max-width: 500px) {
+						font-size: 28px;
+					}
+
+					div.subtitle{
+						font-size: 25px;
+
+						@media only screen and (min-width:500px) and (max-width: 780px){
+							font-size: 20px;
+						}
+
+						@media (max-width: 500px) {
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#nav-container{
+		position: relative;
+		width: 100%;
+		height: 55px;
+		background-color: $mainColor;
+
+		& > div{
+			position: relative;
+			background-color: $mainColor;
+
+			@media (max-width: 768px) {
+				position: absolute;
+				width: 100%;
+			}
+
+			&.fixed-nav{
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 5;
+			}
+		}
+
+		.navbar{
+			margin: 0;
+			min-height: auto;
+
+			&.navbar-default{
+				border: none;
+				background-color: $mainColor;
+			}
+
+			.navbar-header{
+				text-align: center;
+
+				.navbar-toggle{
+					float: none;
+
+					&:focus{
+						background-color: $mainColor;
+					}
+
+					&:hover, &.pushed{
+						background-color: $mainColor;
+						border-color: $secondaryColor;
+
+						span{
+							color: $secondaryColor;
+							background-color: $secondaryColor;
+						}
+					}
+				}
+			}
+
+			.nav-list{
+		    	display: flex;
+		    	flex-direction: row;
+		    	justify-content: center;
+
+				width: 100%;
+				height: auto;
+				margin: 0;
+
+				@media (max-width: 768px) {
+					display: inline-block;
+					position: relative;
+					float: left;
+					width: 100%;
+					height: auto;
+					max-height: 34px;
+					overflow: hidden;
+					transition: max-height 1s ease-in-out;
+
+					&.mobile-menu-displayed{
+						max-height: 170px;
+						transition: max-height 1s ease-in-out;
+					}
+				}
+
+				li{
+				    flex-grow: 1;
+				    flex-shrink: 1;
+				    flex-basis: 50px;
+
+					width: auto;
+					height: auto;
+					padding: 6px;
+					text-align: center;
+					font-size: 16px;
+					color: #FFFFFF;
+
+					&:hover{
+						color: $secondaryColor;
+						cursor: pointer;
+					}
+
+					@media (max-width: 768px) {
+						position: relative;
+						float: left;
+						width: 100%;
+						height: 34px;
+
+						&:after{
+							position: absolute;
+							content: "";
+							height: 2px;
+							width: 0;
+							bottom: 0;
+							left: 0;
+							background-color: $secondaryColor;
+							transition: width 750ms ease-in-out;
+						}
+					}
+				}
+
+				&.navbar-collapse.collapse.in li{
+					position: relative;
+					float: left;
+					width: 100;
+				}
+
+				.bottom-highlighting-nav{
+					position: absolute;
+					bottom: 0;
+					width: calc((100% - 30px) / #{$totalMenuOptions});
+					height: 2px;
+					background-color: $secondaryColor;
+					transition: left 1500ms ease-in-out;
+
+					//None actived
+					left: leftSelectionNav(0);
+					opacity: 0;
+				}
+
+				@function leftSelectionNav($number_selected){
+					@return calc(15px + (((100% - 30px) / #{$totalMenuOptions}) * #{$number_selected}) );
+				}
+
+				@for $i from 1 through $totalMenuOptions {
+				 	$new_i: $i - 1;
+				  	&.active_#{$i} .bottom-highlighting-nav { left: leftSelectionNav( #{$new_i} ); opacity: 1;}
+
+				  	@media (max-width: 768px) {
+						&.active_#{$i} li{
+							top: calc(-34px * #{$new_i});
+							transition: top 1s ease-in-out;
+						}
+
+						&.active_#{$i}.mobile-menu-displayed li{
+							top: 0;
+							transition: top 1s ease-in-out;
+						}
+
+					  	&.active_#{$i} li:nth-of-type(#{$i}):after{
+							width: 100%;
+							transition: width 750ms ease-in-out 750ms;
+						}
+					}
+				}
+			}
+		}
+	}
+}

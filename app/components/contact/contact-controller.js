@@ -3,7 +3,7 @@ angular.module('webBorja').controller('ContactController', ContactController);
 function ContactController(){
 	var contactCtrl = this;
 
-	contact.buttonText = "Send";
+	contactCtrl.buttonText = "Send";
 
 	var isLastSuccess = false;
 	var animationWorking = false;

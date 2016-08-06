@@ -1,0 +1,47 @@
+/** GENERAL **/
+
+body{
+	font-family: 'Kite One', sans-serif;
+}
+
+ul{
+	padding: 0;
+	list-style: none;
+}
+
+header, footer{
+	color: #FFFFFF;
+}
+
+#main{
+	color: $mainColor;
+}
+
+/** BACKGROUNDS **/
+.bg-secondary-color-light{
+	background-color: $secondaryColorLight;
+}
+
+.separator-line{
+	background-color: $secondaryColor;
+	height: 2px;
+}
+
+header .separator-line{
+	margin-top: 5px;
+}
+
+footer .separator-line{
+	margin-bottom: 5px;
+}
+/** BACKGROUNDS **/
+
+/** OTHERS **/
+.no-margin{
+	margin: 0!important;
+}
+
+.no-padding{
+	padding: 0!important;
+}
+/** OTHERS **/
