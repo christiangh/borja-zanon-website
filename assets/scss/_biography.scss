@@ -1,0 +1,27 @@
+.biography-paragraph-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+
+	img {
+		flex-grow: 1;
+		flex-basis: 25%;
+		align-self: center;
+		border-radius: 5px;
+	}
+
+	.text-container {
+		flex-grow: 3;
+		flex-basis: 70%;
+		align-self: center;
+		margin-left: 20px;
+	}
+
+	&:nth-of-type(2n) .text-container {
+		order: -1;
+		margin-left: 0;
+		margin-right: 20px;
+	}
+}
