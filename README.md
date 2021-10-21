@@ -1,4 +1,4 @@
-# Borja Zanón - Website
+# Borja Zanon Website
 This is an example of a musician website developed just for learning and practicing purposes.
 
 ## Technologies
