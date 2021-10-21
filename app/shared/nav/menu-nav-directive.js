@@ -25,30 +25,29 @@ angular.module("webBorja")
 		        if(!autoScrollWorking){
 		        	checkTheSectionInWebBorja(scrollPos, menuManager.getMenuSelected());
 		        }
+
+				scope.$on('autoScrollFired', function(){
+					autoScrollWorking = true;
+				});
+
+				scope.$on('autoScrollFinished', function(){
+					autoScrollWorking = false;
+				});
+
+				scope.$on('changeMenuSelected', function(event, newMenuSelected){
+					menuManager.setMenuSelected(newMenuSelected);
+				});
+
+				scope.toggleMobileMenu = function(){
+					$(".navbar-toggle").toggleClass("pushed");
+
+					if(!$("#menu-nav").hasClass("fixed-nav") && !$("ul.nav-list").hasClass("mobile-menu-displayed")){
+						menuManager.goTo("#nav-container");
+					}
+
+					$("ul.nav-list").toggleClass("mobile-menu-displayed");
+				}
 		    });
-		},
-		controller: function($scope){
-			$scope.$on('autoScrollFired', function(){
-	        	autoScrollWorking = true;
-	        });
-
-	        $scope.$on('autoScrollFinished', function(){
-	        	autoScrollWorking = false;
-	        });
-
-	        $scope.$on('changeMenuSelected', function(event, newMenuSelected){
-	        	menuManager.setMenuSelected(newMenuSelected);
-	        });
-
-	        $scope.toggleMobileMenu = function(){
-	        	$(".navbar-toggle").toggleClass("pushed");
-
-	        	if(!$("#menu-nav").hasClass("fixed-nav") && !$("ul.nav-list").hasClass("mobile-menu-displayed")){
-	        		menuManager.goTo("#nav-container");
-	        	}
-
-	        	$("ul.nav-list").toggleClass("mobile-menu-displayed");
-	        }
 		}
 	}
 }]);
