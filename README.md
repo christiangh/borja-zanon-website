@@ -5,4 +5,4 @@ This is an example of a musician website developed just for learning and practic
 AngularJS, jQuery, Bootstrap and SASS.
 
 ## Requirements to run the app
-For running the app we need to have Node and NPM installed in order to get all the dependencies.
+For running the app we need to have NodeJS and NPM installed in our machine in order to get all the dependencies.
