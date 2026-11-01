@@ -1,86 +1,56 @@
 # Borja Zanón - Web de músico
 
-Prototipo de web personal del músico para Borja Zanón. El proyecto nunca llegó a publicarse: se quedó en una maqueta funcional, con textos y ejemplos de relleno, y hoy se conserva como proyecto de aprendizaje y práctica.
+Prototipo de web personal para el músico Borja Zanón. Nunca llegó a publicarse oficialmente: es una maqueta funcional con contenido de ejemplo que se conserva como proyecto de aprendizaje.
+
+**Demo:** https://christiangh.github.io/borja-zanon-website/
 
 ![Cabecera de la web](assets/images/main.jpg)
 
 ## Qué incluye
 
-Web de una sola página (*single page*) con navegación por secciones:
+Web de una sola página con menú fijo, scroll suave, sección activa resaltada y menú desplegable en móvil.
 
-- **Home**: cabecera con foto a pantalla completa que se adapta al tamaño de la ventana.
-- **Noticias**: panel con la lista de titulares (fecha y título) y la noticia seleccionada al lado, con foto, fecha en español y fundido al cambiar. En móvil la lista queda encima del detalle. Incluye 3 noticias de ejemplo.
-- **Biografía**: contenido de ejemplo.
-- **Galería**: carrusel de fotos responsive (3, 2 o 1 por vista según el ancho, con flechas, puntos y arrastre). Al pulsar una foto se abre a pantalla completa en un *lightbox* para navegar entre todas con flechas o teclado.
-- **Contacto**: formulario validado con AngularJS (nombre, email y mensaje con contador de caracteres). Al enviarlo, muestra los datos en la consola y lanza una animación musical (pentagrama con notas) que simula el envío y alterna entre éxito y error. No envía nada realmente.
-
-Detalles de la navegación:
-
-- Menú fijo que se queda pegado arriba al hacer scroll.
-- El menú marca la sección visible en cada momento, con un subrayado animado.
-- Scroll suave al pulsar una opción del menú.
-- Menú desplegable en móvil.
+- **Home**: cabecera con foto que se adapta a la ventana.
+- **Noticias**: lista de titulares y noticia seleccionada al lado, con fechas en español.
+- **Biografía**: texto e imágenes alternados.
+- **Galería**: carrusel responsive; cada foto se abre a pantalla completa en un *lightbox*.
+- **Contacto**: formulario validado con una animación musical que simula el envío (no envía nada).
 
 ## Tecnologías
 
-- [AngularJS](https://angularjs.org/) 1.8 (componentes, directivas, servicios y controladores)
-- [angular-i18n](https://www.npmjs.com/package/angular-i18n) 1.8 (locale `es-es`) para mostrar las fechas en español
-- [jQuery](https://jquery.com/) 3.7
-- [Slick](https://kenwheeler.github.io/slick/) 1.8 para el carrusel de la galería
-- [Magnific Popup](https://dimsemenov.com/plugins/magnific-popup/) 1.1 para el *lightbox* de la galería
-- [Bootstrap](https://getbootstrap.com/docs/3.4/) 3.4 (solo CSS)
-- [Sass](https://sass-lang.com/) (Dart Sass) + [Autoprefixer](https://github.com/postcss/autoprefixer)
-- [UglifyJS](https://github.com/mishoo/UglifyJS) para empaquetar el JS
-- [Browsersync](https://browsersync.io/) como servidor de desarrollo con recarga automática
-
-## Requisitos
-
-- Node.js **22 o superior** (recomendado: la última LTS)
-- npm 10 o superior
+AngularJS 1.8 (+ angular-i18n), jQuery 3.7, [Slick](https://kenwheeler.github.io/slick/), [Magnific Popup](https://dimsemenov.com/plugins/magnific-popup/), Bootstrap 3.4 (solo CSS), Sass + Autoprefixer, UglifyJS y Browsersync.
 
 ## Puesta en marcha
 
+Requiere Node.js 22 o superior.
+
 ```bash
 npm install
-npm start
+npm start      # compila y levanta la web en http://localhost:3000
 ```
 
-`npm start` compila los estilos y el JavaScript y levanta la web en http://localhost:3000. Los cambios en HTML, CSS y JS compilados recargan el navegador automáticamente.
+Tras cambiar SCSS o JS de `app/`, ejecuta `npm run build` para regenerar `assets/css` y `assets/js` (no versionados).
 
-### Scripts disponibles
+## Despliegue
 
-| Script | Descripción |
-|---|---|
-| `npm start` | `build` + `serve` |
-| `npm run build` | Compila SCSS, aplica autoprefixer y empaqueta el JS |
-| `npm run serve` | Levanta Browsersync sin recompilar |
-| `npm run scss` | Compila `assets/scss` a `assets/css` |
-| `npm run autoprefixer` | Añade prefijos de navegador a `assets/css/main.css` |
-| `npm run uglify-app` | Une y minifica el JS de `app/` en `assets/js/app.js` |
-
-Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspondiente) para regenerar los ficheros compilados.
+Cada push a `master` publica la web en GitHub Pages mediante GitHub Actions (`.github/workflows/deploy-pages.yml`): compila el proyecto y sube solo los ficheros necesarios, incluidas las librerías de `node_modules` que usa `index.html`.
 
 ## Estructura
 
 ```
-├── index.html               # Página principal
+├── index.html
 ├── app/
-│   ├── app.js               # Módulo AngularJS "webBorja"
-│   ├── components/          # Secciones: news, biography, gallery, contact
-│   └── shared/              # Cabecera (foto adaptable), menú de navegación, botón musical, galería de fotos y pie
+│   ├── components/   # Secciones: news, biography, gallery, contact
+│   └── shared/       # Cabecera, menú, botón musical, galería de fotos y pie
 └── assets/
-    ├── scss/                # Estilos fuente
-    ├── images/              # Imágenes
-    ├── css/                 # Generado (no versionado)
-    └── js/                  # Generado (no versionado)
+    ├── scss/         # Estilos fuente
+    └── images/
 ```
 
-## Limitaciones conocidas
+## Limitaciones
 
-- **AngularJS dejó de tener soporte en 2021.** `npm audit` señala vulnerabilidades sin arreglo disponible. En esta web el riesgo es bajo: no hay backend y lo que se escribe en el formulario de contacto no se guarda ni se muestra a otros usuarios.
-- **Bootstrap 3** tiene un aviso moderado de XSS en sus plugins JS. Por eso solo se usa su CSS.
-- Sass avisa de que `@import` está obsoleto. Sigue funcionando con Dart Sass 1.x.
-- El contenido es de ejemplo (noticias incluidas). El formulario de contacto no envía emails: solo muestra los datos en la consola del navegador.
+- AngularJS no tiene soporte desde 2021 y `npm audit` muestra avisos sin arreglo. El riesgo aquí es bajo: no hay backend ni se guardan datos.
+- Contenido de ejemplo; el formulario solo muestra los datos en la consola.
 
 ## Autor
 
