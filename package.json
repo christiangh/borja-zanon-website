@@ -11,7 +11,7 @@
     "serve": "browser-sync start --server --files \"index.html, app/**/*.html, assets/css/*.css, assets/js/*.js\" --no-notify",
     "scss": "sass --style=compressed --no-source-map assets/scss:assets/css",
     "autoprefixer": "postcss assets/css/main.css --use autoprefixer --replace --no-map",
-    "uglify-app": "uglifyjs app/app.js app/shared/nav/menu-nav-directive.js app/shared/nav/menu-manager-service.js app/shared/header/resizable-photo-directive.js app/shared/header/screen-size-and-position-service.js app/shared/music-button/music-button-component.js app/shared/footer/site-footer-component.js app/shared/photo-gallery/photo-gallery-component.js app/components/biography/biography-controller.js app/components/contact/contact-controller.js app/components/gallery/gallery-controller.js app/components/news/news-controller.js -m -o assets/js/app.js"
+    "uglify-app": "uglifyjs app/app.js app/shared/nav/menu-nav-directive.js app/shared/nav/menu-manager-service.js app/shared/header/resizable-photo-directive.js app/shared/header/screen-size-and-position-service.js app/shared/music-button/music-button-component.js app/shared/footer/site-footer-component.js app/shared/photo-gallery/photo-gallery-component.js app/components/biography/biography-controller.js app/components/contact/contact-controller.js app/components/gallery/gallery-controller.js app/components/news/news-controller.js app/components/news/news-panel-component.js -m -o assets/js/app.js"
   },
   "author": "Christian Garcia",
   "license": "ISC",

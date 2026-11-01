@@ -1,0 +1,24 @@
+<div class="news-panel">
+	<nav class="news-list col-sm-4" aria-label="Noticias">
+		<button type="button" class="news-list-item"
+			ng-repeat="item in $ctrl.news track by item.id"
+			ng-class="{ 'active': $ctrl.isSelected(item) }"
+			ng-attr-aria-pressed="{{ $ctrl.isSelected(item) }}"
+			ng-click="$ctrl.select(item)">
+			<span class="news-list-date">{{ item.date | date:'dd MMM yyyy' }}</span>
+			<span class="news-list-title">{{ item.title }}</span>
+		</button>
+	</nav>
+
+	<div class="news-detail-container col-sm-8" aria-live="polite">
+		<!-- ng-if re-inserts the article on every change, which replays its CSS animation -->
+		<article class="news-detail"
+			ng-repeat="item in $ctrl.news track by item.id"
+			ng-if="$ctrl.isSelected(item)">
+			<img class="news-detail-image" ng-src="{{ item.image.src }}" alt="{{ item.image.alt }}">
+			<h3 class="news-detail-title">{{ item.title }}</h3>
+			<time class="news-detail-date" datetime="{{ item.date | date:'yyyy-MM-dd' }}">{{ item.date | date:'d MMMM yyyy' }}</time>
+			<p ng-repeat="paragraph in item.paragraphs">{{ paragraph }}</p>
+		</article>
+	</div>
+</div>
