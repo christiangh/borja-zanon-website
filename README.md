@@ -79,4 +79,4 @@ Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspon
 
 ## Autor
 
-Christian Garcia
+Christian García
