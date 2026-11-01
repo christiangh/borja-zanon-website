@@ -1,17 +1,14 @@
-/** IMPORTING VARS **/
-@import "vars";
-
 /** GENERAL **/
-@import "general";
+@use "general";
 
 /** MAIN SECTIONS **/
-@import "header";
-@import "body";
-@import "footer";
+@use "header";
+@use "body";
+@use "footer";
 
 /** OTHERS **/
-@import "news";
-@import "biography";
-@import "gallery";
-@import "contact";
-@import "music-button";
+@use "news";
+@use "biography";
+@use "gallery";
+@use "contact";
+@use "music-button";
