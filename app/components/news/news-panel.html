@@ -15,7 +15,8 @@
 		<article class="news-detail"
 			ng-repeat="item in $ctrl.news track by item.id"
 			ng-if="$ctrl.isSelected(item)">
-			<img class="news-detail-image" ng-src="{{ item.image.src }}" alt="{{ item.image.alt }}">
+			<img class="news-detail-image" ng-src="{{ item.image.src }}" alt="{{ item.image.alt }}"
+				ng-style="{ 'object-position': $ctrl.getFocus(item.image) }">
 			<h3 class="news-detail-title">{{ item.title }}</h3>
 			<time class="news-detail-date" datetime="{{ item.date | date:'yyyy-MM-dd' }}">{{ item.date | date:"d 'de' MMMM 'de' yyyy" }}</time>
 			<p ng-repeat="paragraph in item.paragraphs">{{ paragraph }}</p>
