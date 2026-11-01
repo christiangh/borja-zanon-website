@@ -1,25 +1,7 @@
 <div class="row" ng-controller="GalleryController as galleryCtrl">
 	<ul class="gallery-container">
-		<li>
-			<img src="/assets/images/gallery1.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery2.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery3.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery4.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery5.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery6.jpg">
-		</li>
-		<li>
-			<img src="/assets/images/gallery7.jpg">
+		<li ng-repeat="img in galleryCtrl.images">
+			<img ng-src="{{img.src}}" alt="{{img.alt}}">
 		</li>
 	</ul>
 </div>
