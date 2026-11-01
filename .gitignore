@@ -1,6 +1,7 @@
 /.idea/
 /node_modules/
 /assets/fonts/
-/assets/js/
+/assets/js/*
+!/assets/js/.gitkeep
 /assets/css/
 /*.log
