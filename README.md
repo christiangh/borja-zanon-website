@@ -4,8 +4,6 @@ Prototipo de web personal para el músico Borja Zanón. Nunca llegó a publicars
 
 **Demo:** https://christiangh.github.io/borja-zanon-website/
 
-![Cabecera de la web](assets/images/main.jpg)
-
 ## Qué incluye
 
 Web de una sola página con menú fijo, scroll suave, sección activa resaltada y menú desplegable en móvil.
