@@ -1,4 +1,65 @@
 
+/** CONTACT FORM **/
+
+.contact-form {
+	textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.label-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+
+	.char-counter {
+		font-size: 12px;
+		color: #777;
+	}
+
+	// Fixed space for one error line so fields don't shift when errors appear
+	.error-slot {
+		min-height: 20px;
+		margin-top: 4px;
+
+		.help-block {
+			margin: 0;
+		}
+	}
+
+	// Textarea stretches to match the height of the name + email column
+	@media (min-width: 768px) {
+		.contact-fields {
+			display: flex;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+
+		.contact-message,
+		.contact-message .form-group {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.contact-message .form-group {
+			flex: 1;
+		}
+
+		// 0px basis (not 0%) so rows="6" doesn't set the row height; flex grows it to fill
+		.contact-message textarea {
+			flex: 1 1 0px;
+			min-height: 0;
+			resize: none;
+		}
+	}
+}
+
+/** CONTACT FORM **/
+
 /** BTN MUSIC **/
 
 a, a:active, a:focus, 

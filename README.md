@@ -10,7 +10,7 @@ Web de una sola página (*single page*) con navegación por secciones:
 
 - **Home**: cabecera con foto a pantalla completa que se adapta al tamaño de la ventana.
 - **Noticias**, **Biografía** y **Galería**: contenido de ejemplo.
-- **Contacto**: botón de envío con una animación musical (pentagrama con notas) que simula el envío y alterna entre éxito y error. No envía nada realmente.
+- **Contacto**: formulario validado con AngularJS (nombre, email y mensaje con contador de caracteres). Al enviarlo, muestra los datos en la consola y lanza una animación musical (pentagrama con notas) que simula el envío y alterna entre éxito y error. No envía nada realmente.
 
 Detalles de la navegación:
 
@@ -72,10 +72,10 @@ Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspon
 
 ## Limitaciones conocidas
 
-- **AngularJS dejó de tener soporte en 2021.** `npm audit` señala vulnerabilidades sin arreglo disponible. En esta web el riesgo es bajo: no hay formularios ni contenido introducido por usuarios.
+- **AngularJS dejó de tener soporte en 2021.** `npm audit` señala vulnerabilidades sin arreglo disponible. En esta web el riesgo es bajo: no hay backend y lo que se escribe en el formulario de contacto no se guarda ni se muestra a otros usuarios.
 - **Bootstrap 3** tiene un aviso moderado de XSS en sus plugins JS. Por eso solo se usa su CSS.
 - Sass avisa de que `@import` está obsoleto. Sigue funcionando con Dart Sass 1.x.
-- El contenido es de ejemplo y el formulario de contacto es solo una demostración visual.
+- El contenido es de ejemplo. El formulario de contacto no envía emails: solo muestra los datos en la consola del navegador.
 
 ## Autor
 
