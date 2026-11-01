@@ -1,5 +1,6 @@
 /**
- * Photo carousel built on top of slick-carousel (jQuery plugin).
+ * Photo carousel built on top of slick-carousel, opening each photo
+ * in a fullscreen lightbox with magnific-popup (both jQuery plugins).
  *
  * Usage: <photo-gallery images="ctrl.images"></photo-gallery>
  * where `images` is an array of { src, alt }.
@@ -41,9 +42,11 @@ function PhotoGalleryController($element, $timeout){
 			$carousel.slick(SLICK_OPTIONS);
 		});
 
-		// Temporary: keep links from navigating to the raw image until the lightbox is wired
-		$carousel.on('click', 'a', function(event){
+		// Slick swallows the click after a drag, so this only fires on a real click.
+		// Cloned slides (infinite mode) are clickable too, hence the manual index.
+		$carousel.on('click', '.photo-gallery-item', function(event){
 			event.preventDefault();
+			openLightbox(getImageIndex($(this)));
 		});
 	};
 
@@ -55,5 +58,26 @@ function PhotoGalleryController($element, $timeout){
 		}
 
 		$carousel.off('click');
+		$.magnificPopup.close();
 	};
+
+	function openLightbox(index){
+		$.magnificPopup.open({
+			items: ctrl.images.map(function(img){
+				return { src: img.src, title: img.alt };
+			}),
+			type: 'image',
+			gallery: { enabled: true },
+			mainClass: 'mfp-fade',
+			removalDelay: 300
+		}, index);
+	}
+
+	// Clones get indexes outside [0, total), so wrap them back to the real photo
+	function getImageIndex($item){
+		var total = ctrl.images.length;
+		var slickIndex = parseInt($item.closest('.slick-slide').attr('data-slick-index'), 10) || 0;
+
+		return ((slickIndex % total) + total) % total;
+	}
 }

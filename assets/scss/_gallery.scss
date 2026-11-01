@@ -56,3 +56,46 @@
 		opacity: 1;
 	}
 }
+
+.photo-gallery .photo-gallery-item {
+	cursor: zoom-in;
+
+	img {
+		transition: opacity .3s ease;
+	}
+
+	&:hover img {
+		opacity: .85;
+	}
+}
+
+// magnific-popup fade transition (official snippet)
+.mfp-fade {
+	&.mfp-bg {
+		opacity: 0;
+		transition: opacity .3s ease-out;
+
+		&.mfp-ready {
+			opacity: .9;
+		}
+
+		&.mfp-removing {
+			opacity: 0;
+		}
+	}
+
+	&.mfp-wrap {
+		.mfp-content {
+			opacity: 0;
+			transition: opacity .3s ease-out;
+		}
+
+		&.mfp-ready .mfp-content {
+			opacity: 1;
+		}
+
+		&.mfp-removing .mfp-content {
+			opacity: 0;
+		}
+	}
+}
