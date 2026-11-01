@@ -9,7 +9,8 @@ Prototipo de web personal del músico para Borja Zanón. El proyecto nunca lleg�
 Web de una sola página (*single page*) con navegación por secciones:
 
 - **Home**: cabecera con foto a pantalla completa que se adapta al tamaño de la ventana.
-- **Noticias** y **Biografía**: contenido de ejemplo.
+- **Noticias**: panel con la lista de titulares (fecha y título) y la noticia seleccionada al lado, con foto, fecha en español y fundido al cambiar. En móvil la lista queda encima del detalle. Incluye 3 noticias de ejemplo.
+- **Biografía**: contenido de ejemplo.
 - **Galería**: carrusel de fotos responsive (3, 2 o 1 por vista según el ancho, con flechas, puntos y arrastre). Al pulsar una foto se abre a pantalla completa en un *lightbox* para navegar entre todas con flechas o teclado.
 - **Contacto**: formulario validado con AngularJS (nombre, email y mensaje con contador de caracteres). Al enviarlo, muestra los datos en la consola y lanza una animación musical (pentagrama con notas) que simula el envío y alterna entre éxito y error. No envía nada realmente.
 
@@ -23,6 +24,7 @@ Detalles de la navegación:
 ## Tecnologías
 
 - [AngularJS](https://angularjs.org/) 1.8 (componentes, directivas, servicios y controladores)
+- [angular-i18n](https://www.npmjs.com/package/angular-i18n) 1.8 (locale `es-es`) para mostrar las fechas en español
 - [jQuery](https://jquery.com/) 3.7
 - [Slick](https://kenwheeler.github.io/slick/) 1.8 para el carrusel de la galería
 - [Magnific Popup](https://dimsemenov.com/plugins/magnific-popup/) 1.1 para el *lightbox* de la galería
@@ -78,7 +80,7 @@ Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspon
 - **AngularJS dejó de tener soporte en 2021.** `npm audit` señala vulnerabilidades sin arreglo disponible. En esta web el riesgo es bajo: no hay backend y lo que se escribe en el formulario de contacto no se guarda ni se muestra a otros usuarios.
 - **Bootstrap 3** tiene un aviso moderado de XSS en sus plugins JS. Por eso solo se usa su CSS.
 - Sass avisa de que `@import` está obsoleto. Sigue funcionando con Dart Sass 1.x.
-- El contenido es de ejemplo. El formulario de contacto no envía emails: solo muestra los datos en la consola del navegador.
+- El contenido es de ejemplo (noticias incluidas). El formulario de contacto no envía emails: solo muestra los datos en la consola del navegador.
 
 ## Autor
 
