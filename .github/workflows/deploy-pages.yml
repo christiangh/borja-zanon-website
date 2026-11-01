@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; let an in-progress one finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build styles and scripts
+        run: npm run build
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/assets
+          cp -r index.html favicon.png app _site/
+          cp -r assets/css assets/js assets/images _site/assets/
+
+          # Vendor files referenced from index.html (keeps a single source of truth)
+          grep -oE 'node_modules/[^"]+' index.html | xargs -I{} cp --parents {} _site/
+
+          # Files loaded from the vendor stylesheets
+          cp --parents -r node_modules/slick-carousel/slick/fonts _site/
+          cp --parents node_modules/slick-carousel/slick/ajax-loader.gif _site/
+          cp --parents -r node_modules/bootstrap/dist/fonts _site/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
