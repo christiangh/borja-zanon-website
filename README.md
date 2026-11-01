@@ -9,7 +9,8 @@ Prototipo de web personal del músico para Borja Zanón. El proyecto nunca lleg�
 Web de una sola página (*single page*) con navegación por secciones:
 
 - **Home**: cabecera con foto a pantalla completa que se adapta al tamaño de la ventana.
-- **Noticias**, **Biografía** y **Galería**: contenido de ejemplo.
+- **Noticias** y **Biografía**: contenido de ejemplo.
+- **Galería**: carrusel de fotos responsive (3, 2 o 1 por vista según el ancho, con flechas, puntos y arrastre). Al pulsar una foto se abre a pantalla completa en un *lightbox* para navegar entre todas con flechas o teclado.
 - **Contacto**: formulario validado con AngularJS (nombre, email y mensaje con contador de caracteres). Al enviarlo, muestra los datos en la consola y lanza una animación musical (pentagrama con notas) que simula el envío y alterna entre éxito y error. No envía nada realmente.
 
 Detalles de la navegación:
@@ -23,6 +24,8 @@ Detalles de la navegación:
 
 - [AngularJS](https://angularjs.org/) 1.8 (componentes, directivas, servicios y controladores)
 - [jQuery](https://jquery.com/) 3.7
+- [Slick](https://kenwheeler.github.io/slick/) 1.8 para el carrusel de la galería
+- [Magnific Popup](https://dimsemenov.com/plugins/magnific-popup/) 1.1 para el *lightbox* de la galería
 - [Bootstrap](https://getbootstrap.com/docs/3.4/) 3.4 (solo CSS)
 - [Sass](https://sass-lang.com/) (Dart Sass) + [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [UglifyJS](https://github.com/mishoo/UglifyJS) para empaquetar el JS
@@ -62,7 +65,7 @@ Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspon
 ├── app/
 │   ├── app.js               # Módulo AngularJS "webBorja"
 │   ├── components/          # Secciones: news, biography, gallery, contact
-│   └── shared/              # Cabecera (foto adaptable), menú de navegación y botón musical
+│   └── shared/              # Cabecera (foto adaptable), menú de navegación, botón musical, galería de fotos y pie
 └── assets/
     ├── scss/                # Estilos fuente
     ├── images/              # Imágenes
