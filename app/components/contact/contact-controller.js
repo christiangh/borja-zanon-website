@@ -1,84 +1,47 @@
-angular.module('webBorja').controller('ContactController', ['$element', '$timeout', ContactController]);
+angular.module('webBorja').controller('ContactController', ['$timeout', ContactController]);
 
-function ContactController($element, $timeout){
+function ContactController($timeout){
 	var contactCtrl = this;
 
-	contactCtrl.buttonText = "Enviar";
+	// Fake request duration, long enough to play the whole stave animation
+	var SEND_DURATION = 10000;
+
 	contactCtrl.message = emptyMessage();
+	contactCtrl.sendStatus = 'idle';
 
 	var isLastSuccess = false;
-	var animationWorking = false;
 
 	contactCtrl.showError = function(form, field){
 		return field.$invalid && (field.$touched || form.$submitted);
 	};
 
 	contactCtrl.send = function(form){
-		if(form.$invalid || animationWorking){
+		if(form.$invalid || contactCtrl.sendStatus !== 'idle'){
 			return;
 		}
 
 		console.log("[Contact] Mensaje enviado:", angular.copy(contactCtrl.message));
 
-		playSendAnimation($element.find(".btn-music"), function(success){
-			if(success){
-				contactCtrl.message = emptyMessage();
-				form.$setPristine();
-				form.$setUntouched();
-			}
-		});
+		contactCtrl.sendStatus = 'sending';
+
+		// Nothing is really sent: alternate success and error to show both results
+		$timeout(function(){
+			isLastSuccess = !isLastSuccess;
+			contactCtrl.sendStatus = isLastSuccess ? 'success' : 'error';
+		}, SEND_DURATION);
+	};
+
+	contactCtrl.onSendFinished = function(form){
+		if(contactCtrl.sendStatus === 'success'){
+			contactCtrl.message = emptyMessage();
+			form.$setPristine();
+			form.$setUntouched();
+		}
+
+		contactCtrl.sendStatus = 'idle';
 	};
 
 	function emptyMessage(){
 		return { name: "", email: "", text: "" };
-	}
-
-	function playSendAnimation($button, onFinish){
-		animationWorking = true;
-
-		var originalText = $button.html();
-		var animationDuration = 10000;
-
-		var stave = document.createElement("DIV");
-		$(stave).addClass("stave")
-			.append("&nbsp;")
-			.append("<span class='quaver'></span>")
-			.append("<span class='minim'></span>")
-			.append("<span class='semibreve'></span>")
-			.append("<span class='crotchet'></span>")
-			.append("<span class='minim'></span>")
-			.append("<span class='semibreve'></span>")
-			.append("<span class='quaver'></span>")
-			.append("<span class='minim'></span>");
-
-		$button.addClass("music-animation-on")
-			.html("")
-			.append(stave);
-
-		var resultMessage = "";
-		var success = !isLastSuccess;
-		$timeout(function() {
-			if(success){
-				$button.addClass("activity-success");
-				resultMessage = "<span class='result-message'>SUCCESS!</span>";
-			}else{
-				$button.addClass("activity-error");
-				resultMessage = "<span class='result-message'>ERROR!</span>";
-			}
-
-			isLastSuccess = success;
-
-			$timeout(function(){
-				$button.html(resultMessage);
-
-				$timeout(function(){
-					$button.removeClass("activity-error activity-success music-animation-on")
-						.html(originalText);
-
-					animationWorking = false;
-					onFinish(success);
-				}, 2000);
-			}, 500);
-		}, animationDuration);
 	}
 }

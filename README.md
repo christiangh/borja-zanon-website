@@ -21,7 +21,7 @@ Detalles de la navegación:
 
 ## Tecnologías
 
-- [AngularJS](https://angularjs.org/) 1.8 (directivas, servicios y controladores)
+- [AngularJS](https://angularjs.org/) 1.8 (componentes, directivas, servicios y controladores)
 - [jQuery](https://jquery.com/) 3.7
 - [Bootstrap](https://getbootstrap.com/docs/3.4/) 3.4 (solo CSS)
 - [Sass](https://sass-lang.com/) (Dart Sass) + [Autoprefixer](https://github.com/postcss/autoprefixer)
@@ -62,7 +62,7 @@ Si modificas SCSS o JS de `app/`, ejecuta `npm run build` (o el script correspon
 ├── app/
 │   ├── app.js               # Módulo AngularJS "webBorja"
 │   ├── components/          # Secciones: news, biography, gallery, contact
-│   └── shared/              # Cabecera (foto adaptable) y menú de navegación
+│   └── shared/              # Cabecera (foto adaptable), menú de navegación y botón musical
 └── assets/
     ├── scss/                # Estilos fuente
     ├── images/              # Imágenes

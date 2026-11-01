@@ -1,0 +1,12 @@
+<button type="submit" class="btn btn-lg btn-info btn-music"
+	ng-class="{
+		'music-animation-on': $ctrl.isAnimating(),
+		'activity-success': $ctrl.status === 'success',
+		'activity-error': $ctrl.status === 'error'
+	}">
+	<span ng-if="$ctrl.phase === 'idle'">{{ $ctrl.label }}</span>
+
+	<div class="stave" ng-if="$ctrl.phase === 'playing' || $ctrl.phase === 'fading'">&nbsp;<span class="quaver"></span><span class="minim"></span><span class="semibreve"></span><span class="crotchet"></span><span class="minim"></span><span class="semibreve"></span><span class="quaver"></span><span class="minim"></span></div>
+
+	<span class="result-message" ng-if="$ctrl.phase === 'result'">{{ $ctrl.status === 'success' ? 'SUCCESS!' : 'ERROR!' }}</span>
+</button>
